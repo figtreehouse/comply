@@ -77,7 +77,7 @@ func initAction(c *cli.Context) error {
 
 	chooser := promptui.Select{
 		Label: "Compliance Templates",
-		Items: []string{"SOC2", "Blank"},
+		Items: []string{"SOC2", "HIPAA", "GDPR", "Blank"},
 	}
 
 	choice, _, err := chooser.Run()
@@ -91,6 +91,10 @@ func initAction(c *cli.Context) error {
 	case 0:
 		themeName = "comply-soc2"
 	case 1:
+		themeName = "comply-hipaa"
+	case 2:
+		themeName = "comply-gdpr"
+	case 3:
 		themeName = "comply-blank"
 	default:
 		panic("unrecognized selection")
